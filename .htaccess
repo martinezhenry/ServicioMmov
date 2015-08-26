@@ -1,0 +1,10 @@
+ RewriteEngine on  
+ RewriteBase /restful/  
+ RewriteCond %{REQUEST_FILENAME} !-d  
+ RewriteCond %{REQUEST_FILENAME} !-f  
+ RewriteCond %{REQUEST_FILENAME} !-l  
+ RewriteRule ^(.+)$ Api.php?url=$1 [QSA,NC,L]  
+
+RewriteCond %{REQUEST_FILENAME} -f
+  RewriteCond %{REQUEST_URI} rest.php|\.ini|\.xml [NC]
+RewriteRule ^(.*)$ index.php [R=404]
